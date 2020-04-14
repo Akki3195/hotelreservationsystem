@@ -17,8 +17,8 @@ public interface RoomSearchRepository extends JpaRepository<Room, Long>{
 	
 	  @Query("SELECT r FROM Room r WHERE r.id NOT IN "
 	  		+ "(SELECT res.room.id from r.reservation res "
-	  		+ "where  res.checkInDate BETWEEN :checkInDate and :checkOutDate OR res.checkOutDate BETWEEN :checkInDate and :checkOutDate)")
-	  Set<Room> getRoomDetails(@Param("checkInDate") Date checkInDate, @Param("checkOutDate") Date checkOutDate);
+	  		+ "where  TO_CHAR(res.checkInDate,'MM/dd/yyyy') BETWEEN :checkInDate and :checkOutDate OR TO_CHAR(res.checkOutDate,'MM/dd/yyyy') BETWEEN :checkInDate and :checkOutDate)")
+	  Set<Room> getRoomDetails(@Param("checkInDate") String checkInDate, @Param("checkOutDate") String checkOutDate);
 	  
 	  Optional<Room> findById(Long id);
 }

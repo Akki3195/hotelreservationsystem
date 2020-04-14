@@ -47,6 +47,11 @@
     </nav>
     
     <div class="container">
+    
+    <h2>
+		Welcome ${pageContext.request.userPrincipal.name}
+	</h2>
+			
 	<c:if test="${message == 'success'}">
 		<h2>Room Detail updated successfully.</h2>
 	</c:if>

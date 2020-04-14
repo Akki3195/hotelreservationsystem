@@ -17,7 +17,7 @@ public class RoomSearchService {
 	@Autowired
 	RoomSearchRepository roomSearchRespository;
 	
-	public Set<Room> searchRoom(Date checkInDate, Date checkOutDate){
+	public Set<Room> searchRoom(String checkInDate, String checkOutDate){
 		Set<Room> rooms = roomSearchRespository.getRoomDetails(checkInDate, checkOutDate);
 		return rooms;
 	}

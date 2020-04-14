@@ -28,19 +28,12 @@
 <body>
 	<jsp:include page="titlepage.jsp"></jsp:include>
 	<div class="container">
-		<c:if test="${pageContext.request.userPrincipal.name != null}">
-			<form id="logoutForm" method="POST" action="${contextPath}/logout">
-				<%-- <input type="hidden" name="${_csrf.parameterName}"
-					value="${_csrf.token}" /> --%>
-			</form>
-
 			<h2>
 				Welcome ${pageContext.request.userPrincipal.name}
 			</h2>
 			<h4>
 				Search Available Room by Entering CheckIn Date and Checkout Dates
 			</h4>
-		</c:if>
 	<div class="row">
 	
 			<form action = "${contextPath}/viewRoomsDetails" method = "GET">
@@ -102,7 +95,7 @@
 	<script>
 	function bookRoom(id){
 		$.confirm({
-		    title: 'Prompt!',
+		    title: 'Book Room!',
 		    content: '' +
 		    '<form action="" class="formName">' +
 		    '<div class="form-group">' +

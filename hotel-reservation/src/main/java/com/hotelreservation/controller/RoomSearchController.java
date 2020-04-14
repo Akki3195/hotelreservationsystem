@@ -26,15 +26,7 @@ public class RoomSearchController {
 	@GetMapping("/viewRoomsDetails")
 	public ModelAndView getAvailableRooms(@RequestParam String chkInDt,@RequestParam String chkOutDt)  {
 		ModelAndView mv = new ModelAndView("welcome");
-		Date frmDt = null;
-		Date toDt = null;
-		try {
-			frmDt = new SimpleDateFormat("dd/MM/yy").parse(chkInDt);
-			toDt = new SimpleDateFormat("dd/MM/yy").parse(chkOutDt);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		Set<Room> roomList = roomSearchService.searchRoom(frmDt, toDt);
+		Set<Room> roomList = roomSearchService.searchRoom(chkInDt, chkOutDt);
 		mv.addObject("roomList",roomList);
 		return mv;
 	}
