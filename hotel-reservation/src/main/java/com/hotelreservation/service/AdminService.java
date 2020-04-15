@@ -18,4 +18,9 @@ public class AdminService {
 		return roomList;
 	}
 	
+	public Room addNewRoomService(Room room) {
+		Room savedRoom = roomSearchRepository.save(room);
+		return savedRoom;
+	}
+	
 }

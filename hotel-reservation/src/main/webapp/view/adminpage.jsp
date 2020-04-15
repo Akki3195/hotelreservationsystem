@@ -35,6 +35,9 @@
         <li>
           <a href="/admin/getroomdetails">Check Room Details</a>
         </li>
+         <li>
+	          <a href="/admin/addnewroom">Add New Room</a>
+	     </li>
         <li>
           <a href="/admin/viewreport">View Booking Report</a>
         </li>
@@ -51,9 +54,13 @@
     <h2>
 		Welcome ${pageContext.request.userPrincipal.name}
 	</h2>
+	
+	<c:if test="${roomMessage == 'success'}">
+		<h4>Room detail added successfully.</h4>
+	</c:if>
 			
 	<c:if test="${message == 'success'}">
-		<h2>Room Detail updated successfully.</h2>
+		<h4>Room Detail updated successfully.</h4>
 	</c:if>
 	<!-- List of Room Details -->
    	<c:if test="${roomList != null}">
@@ -138,15 +145,14 @@
 			</table>
 	</div>
 	</c:if>
-	
 </div>
+
 
 <script type="text/javascript">
 		$(function() {
 			$('#fromDate').datepicker();
 			$('#toDate').datepicker();
 		}); 
-		
-	</script>
+</script>
 </body>
 </html>
